@@ -8,7 +8,6 @@ import static com.app.weather.util.Constants.BOM_CSV_RECORD_TEMPERATURE;
 import static com.app.weather.util.Constants.WEATHER_HISTORY_REQUIRED_IN_MONTHS;
 import static com.app.weather.util.Utils.parseToDouble;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
@@ -34,7 +33,7 @@ public class DataService {
 		return instance;
 	}
 
-	public WeatherHistory getWeatherHistoryForLocation(Location location) throws IOException {
+	public WeatherHistory getWeatherHistoryForLocation(Location location) {
 		List<Double> temperatureList = new LinkedList<Double>();
 		List<Double> pressureList = new LinkedList<Double>();
 		List<Double> relativeHumidityList = new LinkedList<Double>();

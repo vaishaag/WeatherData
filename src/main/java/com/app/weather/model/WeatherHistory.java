@@ -6,9 +6,9 @@ import java.util.List;
 
 public class WeatherHistory {
 	
-	double[] temperature;
-	double[] pressure;
-	double[] relativeHumidity;
+	private double[] temperature;
+	private double[] pressure;
+	private double[] relativeHumidity;
 
 	public WeatherHistory() {
 	}

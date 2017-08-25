@@ -2,8 +2,6 @@ package com.app.weather.model;
 
 import static com.app.weather.util.Utils.formatDecimal;
 
-import com.app.weather.util.Utils;
-
 public class Position {
 
 	private double latitude;

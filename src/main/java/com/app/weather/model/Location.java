@@ -1,7 +1,7 @@
 package com.app.weather.model;
 
-import static com.app.weather.util.Constants.LINE_SEPERATOR;
-import static com.app.weather.util.Constants.SEPERATOR;
+import static com.app.weather.util.Constants.LINE_SEPARATOR;
+import static com.app.weather.util.Constants.SEPARATOR;
 import static com.app.weather.util.Utils.formatDecimal;
 
 import java.util.ArrayList;
@@ -57,11 +57,12 @@ public class Location {
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (WeatherDetails weather : weatherDetailsList) {
-			stringBuilder.append(name + SEPERATOR + position + SEPERATOR + weather.getLocalTime() + SEPERATOR
-					+ weather.getCondition().toString() + SEPERATOR + formatDecimal(weather.getTemperature())
-					+ SEPERATOR + formatDecimal(weather.getPressure()) + SEPERATOR
-					+ formatDecimal(weather.getHumidity()));
-			stringBuilder.append(LINE_SEPERATOR);
+			stringBuilder.append(name).append(SEPARATOR).append(position).append(SEPARATOR)
+					.append(weather.getLocalTime()).append(SEPARATOR).append(weather.getCondition().toString())
+					.append(SEPARATOR).append(formatDecimal(weather.getTemperature())).append(SEPARATOR)
+					.append(formatDecimal(weather.getPressure())).append(SEPARATOR)
+					.append(formatDecimal(weather.getHumidity()));
+			stringBuilder.append(LINE_SEPARATOR);
 		}
 		return stringBuilder.toString();
 	}

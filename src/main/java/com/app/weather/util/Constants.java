@@ -3,12 +3,11 @@ package com.app.weather.util;
 public class Constants {
 
 	// Config file and output file names
-	public static final String CONFIG_FILE = "./locations.json";
 	public static final String OUTPUT_FILE = "./PredictedWeatherDetails.txt";
 
 	// Separators used in output
-	public static final String SEPERATOR = "|";
-	public static final String LINE_SEPERATOR = System.lineSeparator();
+	public static final String SEPARATOR = "|";
+	public static final String LINE_SEPARATOR = System.lineSeparator();
 
 	// Google Maps APIs used for geo code, elevation, time zone
 	public static final String GEOCODE_GOOGLE_API = "http://maps.googleapis.com/maps/api/geocode/json";
