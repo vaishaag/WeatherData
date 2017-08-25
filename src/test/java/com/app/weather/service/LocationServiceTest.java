@@ -13,9 +13,6 @@ import org.junit.Test;
 import com.app.weather.model.Location;
 import com.app.weather.model.Position;
 
-/**
- * Created by chrx on 8/25/17.
- */
 public class LocationServiceTest {
 
 	private LocationService locationService;

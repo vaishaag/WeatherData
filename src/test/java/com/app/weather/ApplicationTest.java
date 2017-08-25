@@ -12,10 +12,9 @@ import org.junit.rules.ExpectedException;
 
 import com.app.weather.util.Constants;
 
-
 public class ApplicationTest {
 	
-	private String configFile = "./src/test/resources/locations.json";
+	private String configFile = "src/test/resources/locations.json";
 
 	private Application application;
 	

@@ -1,5 +1,8 @@
 package com.app.weather.service;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -7,8 +10,6 @@ import org.junit.Test;
 import com.app.weather.model.Location;
 import com.app.weather.model.Position;
 import com.app.weather.model.WeatherHistory;
-
-import static org.junit.Assert.*;
 
 public class DataServiceTest {
 
