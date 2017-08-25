@@ -6,6 +6,7 @@
 	<groupId>WeatherData</groupId>
 	<artifactId>com.app.weather</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -45,5 +46,60 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Build configuration -->
+	<build>
+		<finalName>weather-forecast</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.app.weather.Application</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
+				<configuration>
+					<includes>
+						<include>com.app.weather.TestSuite</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<targetPath>${project.build.directory}</targetPath>
+				<includes>
+					<include>locations.json</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
 
 </project>
