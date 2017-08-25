@@ -7,6 +7,13 @@ import static com.app.weather.util.Utils.formatDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class holds all the location data including location name, IATA code,
+ * position details such as latitude, longitude and elevation. It also includes
+ * the weather details.
+ * 
+ * @author Vaishaag Subhagan
+ */
 public class Location {
 
 	private String name;

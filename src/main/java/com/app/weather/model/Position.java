@@ -2,6 +2,12 @@ package com.app.weather.model;
 
 import static com.app.weather.util.Utils.formatDecimal;
 
+/**
+ * This class is model class for holding the geographical details of a location
+ * - includes latitude, longitude and elevation.
+ * 
+ * @author Vaishaag Subhagan
+ */
 public class Position {
 
 	private double latitude;

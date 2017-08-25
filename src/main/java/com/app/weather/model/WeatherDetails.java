@@ -1,9 +1,17 @@
 package com.app.weather.model;
 
 import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+/**
+ * This class holds the weather details of a location at a particular point in
+ * time. It includes local time, temperature, relative humidity, pressure and
+ * the weather condition.
+ * 
+ * @author Vaishaag Subhagan
+ */
 public class WeatherDetails {
 
 	private LocalDateTime localTime;
@@ -27,7 +35,7 @@ public class WeatherDetails {
 	public void setLocalTime(LocalDateTime localTime) {
 		this.localTime = localTime;
 	}
-	
+
 	public Condition getCondition() {
 		return condition;
 	}
@@ -64,7 +72,7 @@ public class WeatherDetails {
 		this.condition = Condition.SUNNY;
 		if (temperature < 0) {
 			this.condition = Condition.SNOW;
-		} else if (humidity > 80) {
+		} else if (humidity > 70) {
 			this.condition = Condition.RAIN;
 		} else {
 			this.condition = Condition.SUNNY;

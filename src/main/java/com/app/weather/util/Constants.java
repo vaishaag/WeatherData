@@ -1,5 +1,10 @@
 package com.app.weather.util;
 
+/**
+ * This class holds all the constants used in this application.
+ * 
+ * @author Vaishaag Subhagan
+ */
 public class Constants {
 
 	// Config file and output file names
@@ -18,7 +23,7 @@ public class Constants {
 	public static final String BOM_CLIMATE_API_BASE = "http://www.bom.gov.au/climate/dwo/";
 
 	// Forecast size for prediction and history required details
-	public static final int FORECAST_SIZE = 14;
+	public static final int FORECAST_SIZE = 30;
 	public static final int WEATHER_HISTORY_REQUIRED_IN_MONTHS = 12;
 
 	// CSV record details
