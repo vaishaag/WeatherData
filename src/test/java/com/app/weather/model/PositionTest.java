@@ -6,9 +6,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by chrx on 8/25/17.
- */
 public class PositionTest {
 
     @Before

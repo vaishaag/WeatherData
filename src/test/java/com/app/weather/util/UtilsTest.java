@@ -2,11 +2,9 @@ package com.app.weather.util;
 
 import org.junit.Test;
 
+
 import static org.junit.Assert.*;
 
-/**
- * Created by chrx on 8/25/17.
- */
 public class UtilsTest {
 
     @Test
@@ -21,11 +19,14 @@ public class UtilsTest {
 
     @Test
     public void testFormatDecimal() throws Exception {
-
+    	Double number = 23.123456;
+	    assertEquals("23.12", Utils.formatDecimal(number));
     }
 
     @Test
     public void testFormatDecimal1() throws Exception {
-
+    	Double number = 23.123456;
+		String format = "00.0000";
+	    assertEquals("23.1235", Utils.formatDecimal(number, format));
     }
 }
