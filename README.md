@@ -11,7 +11,7 @@ WeatherData artificially simulates the weather based on past weather details and
 
 ### Installation
 
-From project base directory, [_WeatherData_](WeatherData/), where [pom.xml](WeatherData/pom.xml) is present. 
+From project base directory, [_WeatherData_](https://github.com/vaishaag/WeatherData), where [pom.xml](https://github.com/vaishaag/WeatherData/blob/master/pom.xml) is present. 
 
 Execute the command:
 
@@ -29,7 +29,7 @@ Execute the command:
 
 ### locations.json
 
-The [_locations.json_](WeatherData/locations.json) file contains list of locations, for which the weather is to be predicted. The JSON file consists of an array of locations, in which name and IATA code for each location is specified.
+The [_locations.json_](https://github.com/vaishaag/WeatherData/blob/master/locations.json) file contains list of locations, for which the weather is to be predicted. The JSON file consists of an array of locations, in which name and IATA code for each location is specified.
 
 ## Execution
 
@@ -43,7 +43,7 @@ From the traget directory, execute the below command:
 
 ## Output
 
-Once the execution is completed, the prediceted weather details will be available in the file *PredictedWeatherDetails.txt*, which will be in the same directory as that of the execuatable JAR file.
+Once the execution is completed, the prediceted weather details will be written to the file *PredictedWeatherDetails.txt*, which will be in the same directory as that of the execuatable JAR file.
 
 Format of data in the file: ```Location|Position|Local Time|Conditions|Temperature|Pressure|Humidity```
 
