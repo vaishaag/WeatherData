@@ -94,7 +94,7 @@ public class Operations {
 	 * 
 	 * @param urlString
 	 *            - the URL from which the CSV file is to be retrieved
-	 * @return a list of CSVRecords which is parsed from the file retrived from the
+	 * @return a list of CSVRecords which is parsed from the file retrieved from the
 	 *         URL
 	 */
 	public static Iterable<CSVRecord> getCSVRecordsFromUrl(String urlString) {

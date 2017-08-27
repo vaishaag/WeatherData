@@ -8,7 +8,7 @@ import static com.app.weather.util.Constants.BOM_CSV_RECORD_TEMPERATURE;
 import static com.app.weather.util.Constants.WEATHER_HISTORY_REQUIRED_IN_MONTHS;
 import static com.app.weather.util.Utils.parseToDouble;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,16 +55,12 @@ public class DataService {
 		List<Double> pressureList = new LinkedList<Double>();
 		List<Double> relativeHumidityList = new LinkedList<Double>();
 
-		LocalDateTime startDate = LocalDateTime.now().minusMonths(WEATHER_HISTORY_REQUIRED_IN_MONTHS);
+		LocalDate startDate = LocalDate.now().minusMonths(WEATHER_HISTORY_REQUIRED_IN_MONTHS);
 
 		for (int i = 0; i <= WEATHER_HISTORY_REQUIRED_IN_MONTHS; i++) {
-			String dataForYearAndMonth = startDate.plusMonths(i).format(DateTimeFormatter.ofPattern("YYYYMM"));
+			LocalDate date = startDate.plusMonths(i);
 
-			String urlString = BOM_CLIMATE_API_BASE + dataForYearAndMonth + "/text/" + location.getIataCode() + "."
-					+ dataForYearAndMonth + ".csv";
-			System.out.println("INFO: Getting data from URL " + urlString);
-
-			Iterable<CSVRecord> records = Operations.getCSVRecordsFromUrl(urlString);
+			Iterable<CSVRecord> records = getWeatherDetailsForMonth(location, date);
 			for (CSVRecord csvRecord : records) {
 				if (csvRecord.size() == BOM_CSV_RECORD_SIZE) {
 					temperatureList.add(parseToDouble(csvRecord.get(BOM_CSV_RECORD_TEMPERATURE)));
@@ -74,6 +70,45 @@ public class DataService {
 			}
 		}
 
+		return createWeatherHistory(temperatureList, pressureList, relativeHumidityList);
+	}
+
+	/**
+	 * This method returns the weather details for a location for the specified
+	 * month and year
+	 * 
+	 * @param location
+	 *            - the location for which weather details is to be collected
+	 * @param date
+	 *            - the date (month and year) for which the weather data is to be
+	 *            collected
+	 * @return weather details for the specified location and date as a list of
+	 *         CSVRecords
+	 */
+	private Iterable<CSVRecord> getWeatherDetailsForMonth(Location location, LocalDate date) {
+		String iataCode = location.getIataCode();
+		String yearAndMonth = date.format(DateTimeFormatter.ofPattern("YYYYMM"));
+
+		String urlString = BOM_CLIMATE_API_BASE + yearAndMonth + "/text/" + iataCode + "." + yearAndMonth + ".csv";
+		System.out.println("INFO: Getting data from URL " + urlString);
+
+		Iterable<CSVRecord> records = Operations.getCSVRecordsFromUrl(urlString);
+		return records;
+	}
+
+	/**
+	 * Creates an instance of WeatherHistory
+	 * 
+	 * @param temperatureList
+	 *            - previous temperature details of a location as a list
+	 * @param pressureList
+	 *            - previous pressure details of a location as a list
+	 * @param relativeHumidityList
+	 *            - previous humidity details of a location as a list
+	 * @return an instance of WeatherHistory
+	 */
+	private WeatherHistory createWeatherHistory(List<Double> temperatureList, List<Double> pressureList,
+			List<Double> relativeHumidityList) {
 		WeatherHistory weatherHistory = new WeatherHistory();
 		weatherHistory.setTemperature(temperatureList);
 		weatherHistory.setPressure(pressureList);
